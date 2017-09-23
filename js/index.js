@@ -45,6 +45,26 @@ define(['jquery-1.8.3.min'],function(){
              $("#searchBar").show();
          });
 
+         //侧边栏菜单
+         console.log($(".tip"));
+         console.log($(".menu_two"));
+         let tip=$(".tip");
+         let menu_two=$(".menu_two");
+         let top=0;
+         for(let i=0;i<tip.length;i++){
+             $(tip[i]).mouseenter(function(){
+                 this.index=i;
+                 $(menu_two[this.index]).show();
+                 let top=(-1*this.index)*75;
+                 $(menu_two[this.index]).css({top:top+"px"});
+
+             });
+             $(tip[i]).mouseleave(function(){
+                 this.index=i;
+                 $(menu_two[this.index]).hide();
+             });
+         }
+
      }
     return {
      	Top:Top,
